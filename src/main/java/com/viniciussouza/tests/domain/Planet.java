@@ -5,9 +5,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.proxy.HibernateProxy;
-
-import java.util.Objects;
 
 @Entity
 @Table(name = "planets")
@@ -24,15 +23,15 @@ public class Planet {
     private String terrain;
     private String climate;
 
+    public Planet(String name, String terrain, String climate) {
+        this.name = name;
+        this.terrain = terrain;
+        this.climate = climate;
+    }
+
     @Override
-    public final boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null) return false;
-        Class<?> oEffectiveClass = o instanceof HibernateProxy ? ((HibernateProxy) o).getHibernateLazyInitializer().getPersistentClass() : o.getClass();
-        Class<?> thisEffectiveClass = this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass() : this.getClass();
-        if (thisEffectiveClass != oEffectiveClass) return false;
-        Planet planet = (Planet) o;
-        return getId() != null && Objects.equals(getId(), planet.getId());
+    public final boolean equals(Object obj) {
+        return EqualsBuilder.reflectionEquals( obj, this);
     }
 
     @Override
