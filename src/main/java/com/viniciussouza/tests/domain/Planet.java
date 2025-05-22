@@ -29,6 +29,11 @@ public class Planet {
         this.climate = climate;
     }
 
+    public Planet(String terrain, String climate) {
+        this.terrain = terrain;
+        this.climate = climate;
+    }
+
     @Override
     public final boolean equals(Object obj) {
         return EqualsBuilder.reflectionEquals( obj, this);
