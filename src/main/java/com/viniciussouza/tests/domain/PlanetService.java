@@ -27,8 +27,8 @@ public class PlanetService {
         return this.planetRepository.findByName(name);
     }
 
-    public List<Planet> list(String terrain, String climate){
-        Example<Planet> query = QueryBuilder.build(new Planet(terrain, climate));
+    public List<Planet> list(String climate, String terrain){
+        Example<Planet> query = QueryBuilder.build(new Planet(climate, terrain));
         return this.planetRepository.findAll(query);
     }
 
