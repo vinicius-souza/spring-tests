@@ -3,9 +3,7 @@ package com.viniciussouza.tests.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.hibernate.proxy.HibernateProxy;
 
@@ -13,7 +11,6 @@ import org.hibernate.proxy.HibernateProxy;
 @Table(name = "planets")
 @Getter
 @Setter
-@RequiredArgsConstructor
 public class Planet {
 
     @Id
@@ -31,6 +28,9 @@ public class Planet {
     @NotEmpty
     @Column(nullable = false)
     private String climate;
+
+    public Planet() {
+    }
 
     public Planet(String climate, String terrain) {
         this.climate = climate;
