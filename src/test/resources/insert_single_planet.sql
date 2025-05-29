@@ -1,0 +1,1 @@
+INSERT INTO planets (id, name, climate, terrain) VALUES (1, 'Tatooine', 'Arid', 'Desert');
