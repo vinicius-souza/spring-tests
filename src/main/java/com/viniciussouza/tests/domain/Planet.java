@@ -1,5 +1,6 @@
 package com.viniciussouza.tests.domain;
 
+import com.viniciussouza.tests.jacoco.ExcludedFromJacocoGeneratedReport;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Getter;
@@ -55,11 +56,13 @@ public class Planet {
         return EqualsBuilder.reflectionEquals( obj, this);
     }
 
+    @ExcludedFromJacocoGeneratedReport
     @Override
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
 
+    @ExcludedFromJacocoGeneratedReport
     @Override
     public String toString() {
         return "Planet{" +

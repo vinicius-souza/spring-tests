@@ -4,6 +4,8 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 
 public class QueryBuilder {
+    private QueryBuilder(){}
+
     public static Example<Planet> build(Planet planet) {
         ExampleMatcher matcher = ExampleMatcher
                 .matchingAll()
